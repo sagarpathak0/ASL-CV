@@ -1,52 +1,67 @@
-# 🤖 ASL CNN Classification System
-- ✅ **29-class ASL recognition** (A-Z + del, nothing, space)
-- ⚡ **32x faster loading** (569+ images/sec vs 17/sec)
-- 🎯 **Full dataset by default** for maximum accuracy (90%+)
-- 📈 **Real-time progress** with ETA estimates
-- 💾 **Checkpoint system** - pause/resume training anytime
-- 🏆 **Auto-save best models** with epoch tracking
-- 💾 **Auto-save models** with testing on sample imagesgh-performance CNN** built from scratch with **NumPy** for **American Sign Language** alphabet recognition. Supports **29 ASL classes** (A-Z + del, nothing, space) with **optimized parallel loading** and **full dataset training by default**.
+# 🤖 ASL CNN Classification System with Real-time Recognition
+
+A **high-performance CNN** built from scratch with **NumPy** for **American Sign Language** alphabet recognition. Features both **training capabilities** and **real-time camera recognition**. Supports **29 ASL classes** (A-Z + del, nothing, space) with **optimized parallel loading** and **full dataset training by default**.
 
 ## 🚀 Quick Start
 
-### **Default Training (Full Dataset - 45-60 minutes, ~90%+ accuracy)**
+### **🎯 Real-time Camera Recognition**
 ```bash
+# Simple and reliable version
+python live_camera_simple.py
+
+# Original version with more features  
+python live_camera.py
+
+# With custom settings
+python live_camera_simple.py --roi-size 250 --confidence-threshold 0.2
+```
+
+### **🖼️ Batch Image Prediction**
+```bash
+# Single image
+python batch_predict.py "your_image.jpg"
+
+# Multiple images
+python batch_predict.py "ASL_Alphabet_Dataset/asl_alphabet_test/*.jpg"
+```
+
+### **🧪 System Testing**
+```bash
+# Test camera and model
+python test_camera.py
+
+# Complete demo
+python demo.py
+```
+
+### **🎓 Model Training**
+```bash
+# Default Training (Full Dataset - 45-60 minutes, ~90%+ accuracy)
 python train.py
-```
 
-### **Quick Test (30 seconds)**
-```bash
+# Quick Test (30 seconds)
 python train.py --max_samples 50 --epochs 1
-```
 
-### **Fast Training (2-3 minutes, ~75% accuracy)**
-```bash
+# Fast Training (2-3 minutes, ~75% accuracy)
 python train.py --max_samples 200 --epochs 3
 ```
 
-### **Balanced Training (10-15 minutes, ~85% accuracy)**
-```bash
-python train.py --max_samples 1000 --epochs 5
-```
+##  Key Features
 
-### **Resume Training (continue from checkpoint)**
-```bash
-# Resume from latest checkpoint
-python train.py --resume latest --epochs 10
-
-# Resume from specific epoch
-python train.py --resume models/epoch_5 --epochs 15
-```
-
-## 📊 Key Features
-
+### **🎯 Recognition System**
 - ✅ **29-class ASL recognition** (A-Z + del, nothing, space)
+- 📹 **Real-time camera recognition** with live feedback
+- 🖼️ **Batch image processing** for multiple files
+- 🎮 **Interactive controls** and visual feedback
+- 📈 **Prediction smoothing** to reduce flickering
+- 🎯 **Adjustable confidence thresholds**
+
+### **🎓 Training System**
 - ⚡ **32x faster loading** (569+ images/sec vs 17/sec)
-- 🎯 **Smart defaults** for 2-3 minute training sessions
+- 🎯 **Smart defaults** for quick training sessions  
 - 📈 **Real-time progress** with ETA estimates
-- � **Checkpoint system** - pause/resume training anytime
+- 💾 **Checkpoint system** - pause/resume training anytime
 - 🏆 **Auto-save best models** with epoch tracking
-- 💾 **Auto-save models** with testing on sample images
 
 ## ⚡ Performance Optimizations
 

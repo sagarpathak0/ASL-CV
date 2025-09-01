@@ -155,3 +155,11 @@ class CNN:
         grad_back[self.conv_out <= 0] = 0
         self.conv.backprop(grad_back, lr)
         return loss, acc
+    
+    def forward_inference(self, image):
+        """Forward pass for inference only (no training)."""
+        out = self.conv.forward(image)
+        out = np.maximum(0, out)  # ReLU
+        out = self.pool.forward(out)
+        out = self.softmax.forward(out)
+        return out
