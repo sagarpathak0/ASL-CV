@@ -210,6 +210,49 @@ python train.py --max_samples 500 --epochs 3
 grep "Val Accuracy" output.log
 ```
 
+## 📹 Camera Recognition Scripts
+
+### Live Camera Recognition
+```bash
+# Basic usage (15 FPS default)
+python live_camera_simple.py
+
+# Custom FPS (10-15 recommended)
+python live_camera_simple.py --target-fps 10
+python live_camera_simple.py --target-fps 12
+
+# Advanced features
+python live_camera.py --target-fps 15 --roi-size 250
+
+# Different model
+python live_camera.py --model models/epoch_5 --target-fps 10
+```
+
+### Batch Image Testing
+```bash
+# Test single image
+python batch_predict.py path/to/image.jpg
+
+# Test multiple images
+python batch_predict.py ASL_Alphabet_Dataset/asl_alphabet_test/*.jpg
+
+# Show detailed results
+python batch_predict.py --verbose ASL_Alphabet_Dataset/asl_alphabet_test/A_test.jpg
+```
+
+### Camera Script Options
+| Script | Purpose | FPS Default | Best For |
+|--------|---------|-------------|----------|
+| `live_camera_simple.py` | Basic recognition | 15 | Stability |
+| `live_camera.py` | Advanced features | 15 | Full functionality |
+| `batch_predict.py` | Static images | N/A | Testing accuracy |
+
+### Performance Tips
+- **Lower FPS (10-12)** for better stability on older hardware
+- **Higher FPS (15-20)** for smoother experience on modern systems
+- **ROI size 200-300** works best for most hand sizes
+- **Good lighting** is essential for accurate predictions
+
 ---
 
 ## 🎉 Quick Start Checklist
